@@ -1,7 +1,13 @@
 {
   "name": "studatlas-shared",
   "version": "1.0.0",
-  "repository": "git@github.com:pereslavtsev/studatlas-shared.git",
+  "bugs": {
+    "url": "https://github.com/pereslavtsev/studatlas-shared/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:pereslavtsev/studatlas-shared.git"
+  },
   "author": {
     "name": "Vitaly Pereslavtsev",
     "email": "dev@pereslavtsev.com",
@@ -9,15 +15,23 @@
   },
   "license": "MIT",
   "scripts": {
-    "format": "prototool format -f -w",
-    "lint": "prototool lint",
+    "docs": "yarn docs:generate && yarn docs:serve",
+    "docs:generate": "make docs_generate",
+    "docs:serve": "make docs_serve",
+    "format": "make format",
+    "lint": "make lint",
     "postinstall": "go mod download"
   },
   "devDependencies": {
     "@commitlint/cli": "^9.1.1",
     "@commitlint/config-conventional": "^9.1.1",
     "commitizen": "^4.1.2",
+    "concurrently": "^5.2.0",
+    "http-server": "^0.12.3",
     "husky": "^4.2.5",
-    "lint-staged": "^10.2.11"
+    "lint-staged": "^10.2.11",
+    "mkdirp": "^1.0.4",
+    "open-cli": "^6.0.1",
+    "rimraf": "^3.0.2"
   }
 }
