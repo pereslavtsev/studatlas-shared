@@ -2,24 +2,29 @@ syntax = "proto3";
 
 package grabber;
 
+option go_package = "grabberpb";
+option java_multiple_files = true;
+option java_outer_classname = "ReportProto";
+option java_package = "com.grabber";
+
 service ReportService {
-    rpc ListFacultyReports (ListFacultyReportsRequest) returns (ListReportsResponse) {}
+  rpc ListFacultyReports(ListFacultyReportsRequest) returns (ListReportsResponse);
 }
 
 message Report {
-    int32   id            = 1;
-    string  name          = 2;
-    int32   year          = 3;
-    string  speciality    = 4;
-    int32   count         = 5;
-    string  curricula     = 6;
+  int32 id = 1;
+  string name = 2;
+  int32 year = 3;
+  string speciality = 4;
+  int32 count = 5;
+  string curricula = 6;
 }
 
 message ListFacultyReportsRequest {
-    int32   faculty_id    = 2;
-    string  years         = 3;
+  int32 faculty_id = 2;
+  string years = 3;
 }
 
 message ListReportsResponse {
-    repeated Report data = 1;
+  repeated Report data = 1;
 }

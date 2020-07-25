@@ -1,0 +1,23 @@
+{
+  "name": "studatlas-shared",
+  "version": "1.0.0",
+  "repository": "git@github.com:pereslavtsev/studatlas-shared.git",
+  "author": {
+    "name": "Vitaly Pereslavtsev",
+    "email": "dev@pereslavtsev.com",
+    "url": "https://www.pereslavtsev.com"
+  },
+  "license": "MIT",
+  "scripts": {
+    "format": "prototool format -f -w",
+    "lint": "prototool lint",
+    "postinstall": "go mod download"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
+    "commitizen": "^4.1.2",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11"
+  }
+}

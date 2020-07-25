@@ -2,40 +2,45 @@ syntax = "proto3";
 
 package grabber;
 
+option go_package = "grabberpb";
+option java_multiple_files = true;
+option java_outer_classname = "GroupProto";
+option java_package = "com.grabber";
+
 service GroupService {
-    rpc GetGroup (GetGroupRequest) returns (Group) {}
-    rpc ListGroups (ListGroupsRequest) returns (ListGroupsResponse) {}
-    rpc ListFacultyGroups (ListFacultyGroupsRequest) returns (ListGroupsResponse) {}
-    rpc ListSpecialityGroups (ListSpecialityGroupsRequest) returns (ListGroupsResponse) {}
+  rpc GetGroup(GetGroupRequest) returns (Group);
+  rpc ListGroups(ListGroupsRequest) returns (ListGroupsResponse);
+  rpc ListFacultyGroups(ListFacultyGroupsRequest) returns (ListGroupsResponse);
+  rpc ListSpecialityGroups(ListSpecialityGroupsRequest) returns (ListGroupsResponse);
 }
 
 message GetGroupRequest {
-    int32 id = 1;
+  int32 id = 1;
 }
 
 message Group {
-    int32 id = 1;
-    string name = 2;
-    int32 year = 3;
-    int32 countAll = 4;
-    int32 countCommon = 5;
-    int32 countTargeted = 6;
-    int32 countSpecial = 7;
-    string curricula = 8;
-    int32 speciality_id = 9;
-    string speciality = 10;
+  int32 id = 1;
+  string name = 2;
+  int32 year = 3;
+  int32 count_all = 4;
+  int32 count_common = 5;
+  int32 count_targeted = 6;
+  int32 count_special = 7;
+  string curricula = 8;
+  int32 speciality_id = 9;
+  string speciality = 10;
 }
 
 message ListGroupsRequest {}
 
 message ListFacultyGroupsRequest {
-    int32 faculty_id = 2;
+  int32 faculty_id = 2;
 }
 
 message ListSpecialityGroupsRequest {
-    int32 speciality_id = 2;
+  int32 speciality_id = 2;
 }
 
 message ListGroupsResponse {
-    repeated Group data = 1;
+  repeated Group data = 1;
 }

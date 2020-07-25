@@ -2,23 +2,26 @@ syntax = "proto3";
 
 package grabber;
 
+option go_package = "grabberpb";
+option java_multiple_files = true;
+option java_outer_classname = "CurriculaProto";
+option java_package = "com.grabber";
+
 service CurriculaService {
-    rpc ListFacultyCurricula (ListFacultyCurriculaRequest) returns (ListCurriculaResponse) {}
+  rpc ListFacultyCurricula(ListFacultyCurriculaRequest) returns (ListCurriculaResponse);
 }
 
 message Curricula {
-    int32 id = 1;
-    string name = 2;
-    string speciality = 3;
+  int32 id = 1;
+  string name = 2;
+  string speciality = 3;
 }
 
 message ListFacultyCurriculaRequest {
-    int32 faculty_id = 2;
-    string years = 3;
+  int32 faculty_id = 2;
+  string years = 3;
 }
 
 message ListCurriculaResponse {
-    repeated Curricula data = 1;
+  repeated Curricula data = 1;
 }
-
-
